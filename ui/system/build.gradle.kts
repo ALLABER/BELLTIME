@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(projects.ui.assets)
+    implementation(projects.ui.assets)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -41,5 +41,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
 }
