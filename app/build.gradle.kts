@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -57,4 +58,8 @@ dependencies {
 
     // Utils
     implementation(projects.utils.utilsUi)
+
+    // DI
+    implementation(libs.dagger)
+    kapt(libs.daggerCompiler)
 }
