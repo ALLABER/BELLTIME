@@ -1,20 +1,17 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
-    namespace = "com.allaber.belltime"
+    namespace = "com.allaber.data"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.allaber.belltime"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -40,21 +37,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // UI
-    implementation(projects.ui.assets)
-    implementation(projects.ui.localization)
-    implementation(projects.ui.system)
-
-    // Core
-    implementation(projects.core.data)
-    implementation(projects.core.domain)
-
-    // Utils
-    implementation(projects.utils.utilsUi)
+    androidTestImplementation(projects.core.domain)
 }
