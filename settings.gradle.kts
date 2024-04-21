@@ -18,7 +18,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-rootProject.name = "belltime"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
- 
+include(":core:data")
+include(":core:domain")
+include(":ui:localization")
+include(":ui:assets")
+include(":ui:system")
+include(":utils:utils-ui")
