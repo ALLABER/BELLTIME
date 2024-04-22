@@ -6,28 +6,29 @@ plugins {
 
 android {
     namespace = "com.allaber.domain"
-    compileSdk = 34
+    compileSdk = AppConfig.compileSdkVersion
 
     defaultConfig {
-        minSdk = 24
-        consumerProguardFiles("consumer-rules.pro")
+        minSdk = AppConfig.minSdkVersion
+
+        consumerProguardFiles(ProGuard.consumerRules)
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(ProGuard.proguardAndroidOptimize),
+                ProGuard.proguardRules
             )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = AppConfig.sourceCompatibility
+        targetCompatibility = AppConfig.targetCompatibility
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = AppConfig.jvmTarget
     }
 }
 
