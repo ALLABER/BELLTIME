@@ -5,39 +5,28 @@ plugins {
 
 android {
     namespace = "com.allaber.utilsui"
-    compileSdk = 34
+    compileSdk = AppConfig.compileSdkVersion
 
     defaultConfig {
-        minSdk = 24
+        minSdk = AppConfig.minSdkVersion
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        consumerProguardFiles(ProGuard.consumerRules)
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(ProGuard.proguardAndroidOptimize),
+                ProGuard.proguardRules
             )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = AppConfig.sourceCompatibility
+        targetCompatibility = AppConfig.targetCompatibility
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = AppConfig.jvmTarget
     }
-}
-
-dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }
