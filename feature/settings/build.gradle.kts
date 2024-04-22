@@ -1,19 +1,16 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.kapt)
 }
 
 android {
-    namespace = "com.allaber.belltime"
+    namespace = "com.allaber.settings"
     compileSdk = AppConfig.compileSdkVersion
 
     defaultConfig {
-        applicationId = "com.allaber.belltime"
         minSdk = AppConfig.minSdkVersion
-        targetSdk = AppConfig.targetSdkVersion
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+
+        consumerProguardFiles(ProGuard.consumerRules)
     }
 
     buildTypes {
@@ -32,36 +29,17 @@ android {
     kotlinOptions {
         jvmTarget = AppConfig.jvmTarget
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-
-    // UI
-    implementation(projects.ui.assets)
-    implementation(projects.ui.localization)
-    implementation(projects.ui.system)
-
-    // Core
-    implementation(projects.core.data)
-    implementation(projects.core.domain)
-
-    // Utils
-    implementation(projects.utils.utilsUi)
-
-    // DI
-    implementation(libs.dagger)
-    kapt(libs.daggerCompiler)
-
-    // Features
-    implementation(projects.feature.schedule)
-    implementation(projects.feature.settings)
-
-    // Navigation
+    implementation(libs.viewBindingPropertyDelegate)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 }

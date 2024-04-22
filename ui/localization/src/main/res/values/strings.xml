@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BellTime</string>
+    <string name="schedule">Расписание</string>
+    <string name="settings">Настройки</string>
 </resources>
