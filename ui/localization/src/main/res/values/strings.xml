@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BELLTIME</string>
+    <string name="home">Главная</string>
+    <string name="settings">Настройки</string>
 </resources>
