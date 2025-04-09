@@ -14,6 +14,7 @@ import ru.allaber.belltime.convention.implementationCompose
 import ru.allaber.belltime.convention.implementationLifecycle
 import ru.allaber.belltime.convention.implementationCoreKtx
 import ru.allaber.belltime.convention.implementationDebug
+import ru.allaber.belltime.convention.implementationNavigation
 import ru.allaber.belltime.convention.libs
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
@@ -38,6 +39,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 implementationLifecycle(project = target)
                 implementationCompose(project = target)
                 implementationDebug(project = target)
+                implementationNavigation(project = target)
             }
         }
     }

@@ -1,4 +1,3 @@
-import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -13,6 +12,7 @@ import ru.allaber.belltime.convention.implementationCompose
 import ru.allaber.belltime.convention.implementationCoreKtx
 import ru.allaber.belltime.convention.implementationDebug
 import ru.allaber.belltime.convention.implementationLifecycle
+import ru.allaber.belltime.convention.implementationNavigation
 
 class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -33,6 +33,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 implementationLifecycle(project = target)
                 implementationCompose(project = target)
                 implementationDebug(project = target)
+                implementationNavigation(project = target)
             }
         }
     }
