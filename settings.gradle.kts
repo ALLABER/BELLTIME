@@ -25,3 +25,7 @@ rootProject.name = "BELLTIME"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":ui:localization")
+include(":feature:home:home-api")
+include(":feature:settings:settings-api")
+include(":feature:home:home-impl")
+include(":feature:settings:settings-impl")

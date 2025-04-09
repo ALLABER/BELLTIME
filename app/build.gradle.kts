@@ -8,4 +8,8 @@ android {
 
 dependencies {
     implementation(projects.ui.localization)
+    implementation(projects.feature.home.homeApi)
+    implementation(projects.feature.home.homeImpl)
+    implementation(projects.feature.settings.settingsApi)
+    implementation(projects.feature.settings.settingsImpl)
 }
