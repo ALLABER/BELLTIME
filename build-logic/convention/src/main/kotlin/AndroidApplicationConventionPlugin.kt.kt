@@ -11,9 +11,10 @@ import ru.allaber.belltime.convention.configureBuildTypes
 import ru.allaber.belltime.convention.configureKotlin
 import ru.allaber.belltime.convention.implementation
 import ru.allaber.belltime.convention.implementationCompose
-import ru.allaber.belltime.convention.implementationLifecycle
 import ru.allaber.belltime.convention.implementationCoreKtx
+import ru.allaber.belltime.convention.implementationDagger
 import ru.allaber.belltime.convention.implementationDebug
+import ru.allaber.belltime.convention.implementationLifecycle
 import ru.allaber.belltime.convention.implementationNavigation
 import ru.allaber.belltime.convention.libs
 
@@ -23,6 +24,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply(plugin = "com.android.application")
             apply(plugin = "org.jetbrains.kotlin.android")
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
+            apply(plugin = "kotlin-kapt")
 
             extensions.getByType<ApplicationExtension>().apply {
                 configureKotlin()
@@ -40,6 +42,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 implementationCompose(project = target)
                 implementationDebug(project = target)
                 implementationNavigation(project = target)
+                implementationDagger(project = target)
             }
         }
     }
